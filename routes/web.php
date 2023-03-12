@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudsController;
+use App\Http\Controllers\LoanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,9 +44,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/cruds/{id}/edit', [CrudsController::class, 'edit'])->name('cruds.edit');
     Route::post('/cruds/{id}/update', [CrudsController::class, 'update'])->name('cruds.update');
     Route::get('/cruds/{id}/destroy', [CrudsController::class, 'destroy'])->name('cruds.destroy');
-    Route::get('/sukses_pinjam', function(){
-        return view('admin.pinjam');
-    });
-
+    Route::get('/borrow/{id}', [LoanController::class, 'borrow'])->name('borrow');
+    Route::get('/return/{id}', [LoanController::class, 'return'])->name('return');
 
 });

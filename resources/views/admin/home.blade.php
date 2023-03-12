@@ -63,9 +63,18 @@
                                             </button>
                                             @endif
                                             @if(Auth::user()->role == 'user')
-                                            <button class="">
-                                                <a href="/sukses_pinjam" class="au-btn au-btn-icon au-btn--green au-btn--small">Pinjam</a>
-                                            </button>
+                                                <button class="">
+                                                    @php($loaned = false)
+                                                    @foreach($crud->loan as $loan)
+                                                        @if ($loan->user_id == auth()->user()->id)
+                                                            @php($loaned = true)
+                                                            <a href="{{ route('return', $loan->id) }}" class="au-btn au-btn-icon au-btn--green au-btn--small">Kembalikan</a>
+                                                        @endif
+                                                    @endforeach
+                                                    @if(!$loaned)
+                                                        <a href="{{ route('borrow', $crud->id) }}" class="au-btn au-btn-icon au-btn--green au-btn--small">Pinjam</a>
+                                                    @endif
+                                                </button>
                                             @endif
                                         </div>
                                     </td>

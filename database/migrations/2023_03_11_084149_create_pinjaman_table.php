@@ -16,13 +16,8 @@ return new class extends Migration
     {
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('buku_id');
-            $table->foreign('buku_id')->references('id')->on('buku')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('tanggal_pinjam');
-            $table->date('tanggal_wajib_kembali');
-            $table->date('tanggal_pengembalian')->nullable();
+            $table->bigInteger('user_id');
+            $table->bigInteger('book_id');
             $table->timestamps();
         });
     }

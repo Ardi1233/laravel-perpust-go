@@ -15,6 +15,7 @@ class CrudsController extends Controller
     public function index()
     {
         $cruds = Crud::paginate(10);
+
         return view('admin/home', compact('cruds'));
     }
 
