@@ -49,7 +49,7 @@
 		<!--Right Col-->
 		<div class="w-full lg:w-1/2 lg:py-6 text-center">
 			<!--Add your product image here-->
-            <img src="{{asset('admin/images/icon/FotoPerpust.jpg')}}">
+            <img src="{{asset('admin/images/icon/FotoPerpust.jpg')}}>
 		</div>
 	</div>
 </body>
