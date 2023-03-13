@@ -13,8 +13,11 @@ use App\Http\Controllers\LoanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+	return view('welcome');
+});
 
-Route::get('/', [CrudsController::class, 'indexdua'])->name('cruds.indexdua');
+//Route::get('/', [CrudsController::class, 'indexdua'])->name('cruds.indexdua');
 Route::get('/cari',[CrudsController::class, 'cari'])->name('cruds.cari');
 
 
